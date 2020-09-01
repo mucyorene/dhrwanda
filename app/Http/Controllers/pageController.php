@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\ArticlesModels;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class pageController extends Controller
@@ -26,9 +27,12 @@ class pageController extends Controller
         return view('pages.contact');
     }
     public function blog(){
-        return view('pages.blog');
+        $articles = ArticlesModels::latest()->paginate(3);
+        return view('pages.blog')->with('article',$articles);
     }
-    public function singleBlog(){
-        return view('pages.blog-single');
+    public function singleBlog($id){
+        $single = ArticlesModels::find($id);
+        var_dump($single->content);
+        return view('pages.blogSingle');
     }
 }

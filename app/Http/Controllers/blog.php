@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\DashboardModels\ArticlesModels;
+use App\Models\ArticlesModels;
 class blog extends Controller
 {
     /**
@@ -37,11 +37,10 @@ class blog extends Controller
         $image = $request->file('thumbnail');
         $new_name = rand().'.'.$image->getClientOriginalExtension();
         $image->move(public_path('blogImage'),$new_name);
-
         $article = new ArticlesModels;
         $article->postTitle = $request->input('postTitle');
         $article->content = $request->input('bodys');
-        $article->thumb = $image;
+        $article->thumb = $new_name;
         $article->save();
         return back();
     }

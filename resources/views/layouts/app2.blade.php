@@ -31,7 +31,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
         <body>
-            @extends('includes.donateNav')
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light navBars" id="ftco-navbar">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand" href="/">DH</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="/" class="nav-link" id="home">Home</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link about" id="about">About us</a></li>
+                        <li class="nav-item"><a href="/services" class="nav-link" id="services">Services</a></li>
+                        <li class="nav-item"><a href="/causes" class="nav-link" id="causes">Causes</a></li>
+                        <li class="nav-item"><a href="/donate" class="nav-link" id="donate">Donate</a></li> 
+                        <li class="nav-item"><a href="/blog" class="nav-link" id="blog">Our Blog</a></li>        
+                        <li class="nav-item"><a href="/contact" class="nav-link" id="contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
             <br><br><br><br><br>
             @yield('content')
         </body>

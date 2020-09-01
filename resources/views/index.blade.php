@@ -254,7 +254,6 @@
       </div>
     </div>
   </section><br>
-
   <!-- <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center pb-5">
@@ -426,5 +425,10 @@
       <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
     </svg>
   </div>
-
-  @endsection
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $("#home").addClass("active");
+    });
+  </script>
+@endsection

@@ -21,7 +21,7 @@ Route::get('/causes','pageController@causes');
 Route::get('/contact','pageController@contact');
 Route::get('/donate','pageController@donate');
 Route::get('/blog','pageController@blog');
-Route::get('/single-blog','pageController@singleBlog');
+Route::get('/single-blog/{id}','pageController@singleBlog');
 //Route::get('/appreciate','pageController@appreciate');
 //Donation save
 Route::post('/donateReq','legal@store')->name('donates');
