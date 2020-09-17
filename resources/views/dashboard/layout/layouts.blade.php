@@ -27,8 +27,9 @@
     <link href="dashboard/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- CKEDITOR -->
-    <script src="ckeditor/ckeditor.js"></script>
-    <script src="ckeditor/vendor/promise.js"></script>    
+    <script src="ckeditor3/ckeditor.js"></script>
+    <!-- <script src="ckeditor2/ckin/ckeditor.js"></script> -->
+    <!-- <script src="ckeditor/vendor/promise.js"></script>     -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -77,9 +78,10 @@
             });
         });
     </script>
+    <!-- about ckEditor -->
     <script type="text/javascript">
-       CKEDITOR.replace('textArea',{
-           filebrowserUploadUrl:"{{route('uploads',['_token'=>csrf_token()])}}",
+       CKEDITOR.replace('bodys',{
+           filebrowserUploadUrl:"{{route('ckeditor.upload',['_token'=>csrf_token()])}}",
            filebrowserUploadMethod:'form',
         //    extraPlugins: 'imageuploader'
        });

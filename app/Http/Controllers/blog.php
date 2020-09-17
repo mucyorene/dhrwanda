@@ -37,12 +37,36 @@ class blog extends Controller
         $image = $request->file('thumbnail');
         $new_name = rand().'.'.$image->getClientOriginalExtension();
         $image->move(public_path('blogImage'),$new_name);
+        
         $article = new ArticlesModels;
         $article->postTitle = $request->input('postTitle');
         $article->content = $request->input('bodys');
         $article->thumb = $new_name;
         $article->save();
         return back();
+    }
+
+    public function uploads(Request $request){
+        if ($request->hasFile('upload')) {
+           //getting file with extenstion
+           $fileWithExtension = $request->file('upload')->getClientOriginalName();
+           //getting file without extensions
+           $fileName = pathinfo($fileWithExtension,PATHINFO_FILENAME);
+           //getting file extension
+           $extension = $request->file('upload')->getClientOriginalExtension();
+           //get file to store
+           $fileNameToStore =  $fileName.'_'.time().'.'.$extension;
+           //File upload
+           $request->file('upload')->move(public_path("uploads/"),$fileNameToStore);
+
+        //    $request->file('bodys')->storeAs('public/uploads',$fileNameToStore);
+           $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+           $url = asset('uploads/'.$fileNameToStore);
+           $msg = 'Images successfully uploaded';
+           $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum,'$url','$msg')</script>";
+           @header('Content-Type:text/html;charset=utf-8');
+           echo $re;
+        }
     }
 
     /**

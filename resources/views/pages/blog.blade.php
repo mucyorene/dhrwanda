@@ -9,7 +9,7 @@
           @foreach($article as $art)
             <div class="col-md-12 d-flex ftco-animate">
               <div class="blog-entry align-self-stretch d-md-flex">
-                <a href="single-blog/{{$art->id}}" class="block-20" style="background-image: url('blogImage/{{$art->thumb}}');">
+                <a href="/single.{{$art->id}}" class="block-20" style="background-image: url('blogImage/{{$art->thumb}}');">
                 </a>
                 <div class="text d-block pl-md-4">
                   <div class="meta mb-3">
@@ -17,8 +17,8 @@
                     <div><a href="#">Admin</a></div>
                     <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                   </div>
-                  <h3 class="heading"><a href="/single-blog/{{$art->id}}">{{$art->postTitle}}</a></h3>
-                  <p><a href="single-blog/{{$art->id}}" class="btn btn-primary py-2 px-3">Read more</a></p>
+                  <h3 class="heading"><a href="/single.{{$art->id}}">{!!$art->postTitle!!}</a></h3>
+                  <p><a href="/single.{{$art->id}}" class="btn btn-primary py-2 px-3">Read more</a></p>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@
               </div>
             </form>
           </div>
-          <div class="sidebar-box ftco-animate">
+          <!-- <div class="sidebar-box ftco-animate">
             <h3 class="heading-2">Categories</h3>
             <ul class="categories">
               <li><a href="#">Bags <span>(12)</span></a></li>
@@ -132,46 +132,52 @@
               <li><a href="#">Makeup <span>(14)</span></a></li>
               <li><a href="#">Beauty <span>(140)</span></a></li>
             </ul>
-          </div>
-
-          <div class="sidebar-box ftco-animate">
-            <h3 class="heading-2">Recent Blog</h3>
-            <div class="block-21 mb-4 d-flex">
-              <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-              <div class="text">
-                <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+          </div> -->
+          
+            <div class="sidebar-box ftco-animate">
+              <h3 class="heading-2">Recent Blog</h3>
+              @if(count($recent)>0)
+              @foreach($recent as $re)
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url('blogImage/{{$re->thumb}}');"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="/single.{!!$re->id!!}">{{$re->postTitle}}</a></h3>
+                  <div class="meta">
+                    <div><a href="/single.{!!$re->id!!}"><span class="icon-calendar"></span> {{$re->created_at}}</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+                
+              </div>
+              @endforeach
+              @endif
+              <!-- <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="block-21 mb-4 d-flex">
-              <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-              <div class="text">
-                <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
+                <div class="text">
+                  <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
                 </div>
-              </div>
+              </div> -->
             </div>
-            <div class="block-21 mb-4 d-flex">
-              <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
-              <div class="text">
-                <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta">
-                  <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="sidebar-box ftco-animate">
+          
+          
+          <!-- <div class="sidebar-box ftco-animate">
             <h3 class="heading-2">Tag Cloud</h3>
             <div class="tagcloud">
               <a href="#" class="tag-cloud-link">donate</a>
@@ -183,12 +189,12 @@
               <a href="#" class="tag-cloud-link">help</a>
               <a href="#" class="tag-cloud-link">volunteer</a>
             </div>
-          </div>
+          </div> -->
 
-          <div class="sidebar-box ftco-animate">
+          <!-- <div class="sidebar-box ftco-animate">
             <h3 class="heading-2">Paragraph</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-          </div>
+          </div> -->
         </div>
 
       </div>

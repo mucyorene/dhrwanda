@@ -26,13 +26,14 @@ class pageController extends Controller
     public function contact(){
         return view('pages.contact');
     }
-    public function blog(){
-        $articles = ArticlesModels::latest()->paginate(3);
-        return view('pages.blog')->with('article',$articles);
-    }
+    // public function blog(){
+    //     $articles = ArticlesModels::latest()->paginate(3);
+    //     return view('pages.blog')->with('article',$articles);
+    // }
     public function singleBlog($id){
-        $single = ArticlesModels::find($id);
-        var_dump($single->content);
-        return view('pages.blogSingle');
+        $data = ArticlesModels::find($id);
+        //var_dump($datas->content);
+        $datas = $data->content;
+        return view('pages.blogSingle',compact('datas'));
     }
 }

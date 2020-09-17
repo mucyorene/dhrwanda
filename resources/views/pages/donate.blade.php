@@ -6,37 +6,25 @@
           <div class="col-md-6 col-lg-6 col-sm-6 order-md-last">
             <fieldset>
                 <legend class="legend text-primary px-5">Personal donating Part</legend>
-                <form method="POST" action="/per" class="bg-light p-5 contact-form">
+                <form method="POST" onclick="return validatePersonal();" action="/per" name="formLegal" class="bg-light p-5 contact-form">
                 {{ csrf_field() }}
-                    <div class="form-group row">
-                        <div class="col-md-5">
-                            <b>Start at:</b>
-                            <input type="date" class="form-control" name="start" id="">
-                        </div>
-                        <div class="col-md-2">
-                            <div class="container">
-                                <b class="text-danger">To</b>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <b>End on:</b>
-                            <input type="date" class="form-control" name="end" id="">
-                        </div>                     
-                    </div>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="text" class="form-control" name="firstName" placeholder="First Name">
+                            <small class="text-danger" id="perFname"></small>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+                            <small class="text-danger" id="perLname"></small>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="email" name="email" class="form-control" placeholder="Email">
+                            <small class="text-danger" id="email"></small>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <select name="country" id="" class="form-control">
+                            <select name="country" id="" required class="form-control">
                                 <option value="">COUNTRY</option>
                                 <option value="Rwanda">Rwanda</option>
                             </select>
@@ -45,9 +33,11 @@
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="text" name="phoneNumber" class="form-control" placeholder="Phone Number">
+                            <small class="text-danger" id="phoneNumber"></small>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="number" class="form-control" placeholder="Amount" name="amount">
+                            <small class="text-danger" id="amount"></small>
                         </div>
                     </div>
                     <!-- <div class="form-group">
@@ -71,38 +61,26 @@
             <div class="container-fluid px-1">
                 <fieldset class="fieldset">
                     <legend class="legend text-primary px-5">Legal Institution Donating Part</legend>
-                    <form method="POST" action="/donateReq" class="bg-light p-5 contact-form">
+                    <form method="POST" action="/donateReq" onclick="return validateLegalForm();" name="legalForm" class="bg-light p-5 contact-form">
                     {{ csrf_field() }}
-                        <div class="form-group row">
-                           <div class="col-md-5">
-                               <b>Start at:</b>
-                               <input type="date" class="form-control" name="start1" id="">
-                           </div>
-                           <div class="col-md-2">
-                               <div class="container">
-                                   <b class="text-danger">To</b>
-                               </div>
-                           </div>
-                           <div class="col-md-5">
-                               <b>End on:</b>
-                                <input type="date" class="form-control" name="end1" id="">
-                            </div>                     
-                        </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="institutionName" placeholder="Institution Name">
+                            <small class="text-danger" id="institutionName"></small>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
-                              <input type="email" name="email1" class="form-control" placeholder="Email">  
+                              <input type="email" name="email1" class="form-control" placeholder="Email">
+                              <small class="text-danger" id="email1"></small>  
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-5">
                                 <input type="number" name="amount1" class="form-control" placeholder="Amount">
+                                <small class="text-danger" id="amount1"></small>
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-5">
-                                <select name="country1" id="" class="form-control">
+                                <select name="country1" required id="" class="form-control">
                                     <option value="">SELECT COUNTRY</option>
                                     <option value="Rwanda">Rwanda</option>
                                 </select>
@@ -128,8 +106,8 @@
                                 src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
                                 alt="Donate">
                                 <img alt="" width="1" height="1"
-                                src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" > -->
-                                <input type="submit" value="Donate" class="btn btn-primary btn-sm">
+                                src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+                                <input type="submit" value="Donate" class="btn btn-primary btn-sm"> -->
                         </div>
                     </form>
                 </fieldset>

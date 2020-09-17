@@ -51,7 +51,7 @@
                 </div>
             </div>
         </nav>
-            <br><br><br><br><br>
+            <br><br><br>
             @yield('content')
         </body>
         <footer class="ftco-footer ftco-section img" style="background-image: url(images/footer.jpg);">
@@ -130,6 +130,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/script.js"></script>
   <script type="text/javascript">
     $(function(){
       $("#service1").click(function(){
