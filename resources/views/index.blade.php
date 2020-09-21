@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 @section('title','DH | RWANDA')
 @section('content')
   <div class="hero-wrap" style="background-image: url('images/image_5.jpg')" data-stellar-background-ratio="0.5">

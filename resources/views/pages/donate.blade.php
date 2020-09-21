@@ -90,24 +90,24 @@
                             <textarea name="message1" id="" cols="30" rows="7" class="form-control" placeholder="About Donating Institution"></textarea>
                         </div>
                         <div class="form-group">
-                            <!-- Identify your business so that you can collect the payments. -->
-                                <!-- <input type="hidden" name="business"
-                                    value="YOUR_PAYPAL_EMAIL_ADDRESS"> -->
+                            <!-- Identify your business so that you can collect the payments.
+                                <input type="hidden" name="business"
+                                    value="renemucyomucici@gmail.com">
                             
-                                <!-- Specify a Donate button. -->
-                                <!-- <input type="hidden" name="cmd" value="_donations"> -->
+                                Specify a Donate button.
+                                <input type="hidden" name="cmd" value="_donations">
                             
-                                <!-- Specify details about the contribution -->
-                                <!-- <input type="hidden" name="item_name" value="Mutual donation for Rwandan people from our diaspora">
-                                <input type="hidden" name="currency_code" value="USD"> -->
+                                Specify details about the contribution
+                                <input type="hidden" name="item_name" value="Mutual donation for Rwandan people from our diaspora">
+                                <input type="hidden" name="currency_code" value="USD">
                             
-                                <!-- Display the payment button. -->
-                                <!-- <input type="image" name="submit"
+                                Display the payment button.
+                                <input type="image" name="submit"
                                 src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
                                 alt="Donate">
                                 <img alt="" width="1" height="1"
-                                src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-                                <input type="submit" value="Donate" class="btn btn-primary btn-sm"> -->
+                                src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" > -->
+                                <input type="submit" value="Donate" id="checkout-button" class="btn btn-primary btn-sm">
                         </div>
                     </form>
                 </fieldset>

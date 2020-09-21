@@ -25,21 +25,32 @@
                     </div>
                   </div> -->
                   <div class="pt-5 mt-5">
-                    <h3 class="mb-5">6 Comments</h3>
+                    <h3 class="mb-5">
+                      @if(count($comments)>0)
+                        {{$var=count($comments)}} Comments
+                      @else
+                      
+                      @endif
+                    </h3>
                     <ul class="comment-list">
-                      <li class="comment">
-                        <div class="vcard bio">
-                          <img src="images/person_1.jpg" alt="Image placeholder">
-                        </div>
-                        <div class="comment-body">
-                          <h3>John Doe</h3>
-                          <div class="meta">Sep. 05, 2019 at 2:21pm</div>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-                          vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                          <p><a href="#" class="reply">Reply</a></p>
-                        </div>
-                      </li>
-                      <li class="comment">
+                      @if(count($comments)>0)
+                        @foreach($comments as $comment)
+                            <li class="comment">
+                              <div class="vcard bio">
+                                <img src="images/person_1.jpg" alt="Image placeholder">
+                              </div>
+                              <div class="comment-body">
+                                <h3>{{$comment->name}}</h3>
+                                <div class="meta">{{$comment->created_at}}</div>
+                                <p>{{$comment->message}}</p>
+                                <!-- <p><a href="#" class="reply">Reply</a></p> -->
+                              </div>
+                            </li>
+                        @endforeach
+                      @else
+                        Be the first to comment
+                      @endif
+                      <!-- <li class="comment">
                         <div class="vcard bio">
                           <img src="images/person_1.jpg" alt="Image placeholder">
                         </div>
@@ -50,7 +61,7 @@
                           vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
                           <p><a href="#" class="reply">Reply</a></p>
                         </div>
-                        <!-- <ul class="children">
+                        <ul class="children">
                           <li class="comment">
                             <div class="vcard bio">
                               <img src="images/person_1.jpg" alt="Image placeholder">
@@ -93,8 +104,8 @@
                               </li>
                             </ul>
                           </li>
-                        </ul> -->
-                      </li>
+                        </ul>
+                      </li> -->
 
                       <!-- <li class="comment">
                         <div class="vcard bio">
@@ -110,7 +121,13 @@
                     </ul>
                     <div class="comment-form-wrap pt-5">
                       <h3 class="mb-5">Leave a comment</h3>
-                      <form action="#" class="p-5 bg-light">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                          @include('dashboard.inc.message')
+                        </div>
+                      </div>
+                      <form method="POST" action="/leaveComments.{{$singles->id}}" class="p-5 bg-light">
+                      {{ csrf_field() }}
                         <div class="form-group">
                           <label for="name">Name <span class="text-danger">*</span></label>
                           <input type="text" required class="form-control" name="cNames" required id="name" placeholder="Names">

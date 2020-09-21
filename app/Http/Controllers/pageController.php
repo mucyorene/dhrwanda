@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\ArticlesModels;
+use App\Posts;
+use App\Contact;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -26,14 +27,43 @@ class pageController extends Controller
     public function contact(){
         return view('pages.contact');
     }
-    // public function blog(){
-    //     $articles = ArticlesModels::latest()->paginate(3);
-    //     return view('pages.blog')->with('article',$articles);
-    // }
-    public function singleBlog($id){
-        $data = ArticlesModels::find($id);
-        //var_dump($datas->content);
-        $datas = $data->content;
-        return view('pages.blogSingle',compact('datas'));
+    public function contactPost(Request $request){
+        
+        request()->validate([
+            'names'=>'required',
+            'email'=>'required|email',
+            'subject'=>'required',
+        ]);
+        $varContact = new contact;
+        $varContact->names = $request->input('names');
+        $varContact->email = $request->input('email');
+        $varContact->subject = $request->input('subject');
+        $varContact->message = $request->input('message');
+        $varContact->save();
+        return back()->with('success','Thanks for contacting us');
     }
+    // public function showLogin(){
+    //     return View('login');
+    // }
+    // public function doLogin(Request $request){
+    //     request()->validate([
+    //         'password'=>'required',
+    //         'email'=>'required|email'
+    //     ]);
+    //         $userdata = array(
+    //             'email' => $request->input('email'),
+    //             'password' => $request->input('password')
+    //         );
+    //         foreach ($userdata as $key => $value) {
+    //             echo $value->$key;
+    //         }
+    //         // if (Auth::attempt($userdata)) {
+    //         //     // echo "<script>alert('Success')</script>";
+    //         //     return 'ok';
+    //         // }else{
+    //         //     // echo "<script>alert('Success')</script>";
+    //         //     // return redirect('/loginTrue');
+    //         //     return 'No';
+    //         // }
+    // }
 }

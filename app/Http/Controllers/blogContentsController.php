@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\ArticlesModels;
+use App\Posts;
+use App\Comments;
 use Illuminate\Http\Request;
 
 class blogContentsController extends Controller
@@ -13,8 +14,8 @@ class blogContentsController extends Controller
      */
     public function index()
     {
-        $articles = ArticlesModels::latest()->paginate(3);
-        $recent=ArticlesModels::latest()->paginate(3);
+        $articles = Posts::latest()->Where('postStatus','=','unpublish')->paginate(3);
+        $recent=Posts::latest()->Where('postStatus','=','unpublish')->paginate(3);
         return view('pages.blog')->with('article',$articles)->with('recent',$recent);
     }
 
@@ -23,9 +24,15 @@ class blogContentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request,$id)
     {
-        //
+        $saveComment = new Comments;
+        $saveComment->name = $request->input('cNames');
+        $saveComment->email = $request->input('cEmail');
+        $saveComment->message = $request->input('cMessage');
+        $saveComment->posts_id = $id;
+        $saveComment->save();
+        return back()->with('success','Thanks for commenting');
     }
 
     /**
@@ -36,7 +43,7 @@ class blogContentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -47,11 +54,14 @@ class blogContentsController extends Controller
      */
     public function show($id)
     {
-        $singles = ArticlesModels::find($id);
-        $recent = ArticlesModels::latest()->paginate(3);
-
+        $singles = Posts::find($id);
+        $recent = Posts::latest()->paginate(3);
+        $comments = Posts::find($id)->comments()->latest()->get();
+        // foreach ($comments as $value) {
+        //    echo $value->email."<br>";
+        // }
         //var_dump($recent->postTitle);
-        return view('pages.blogSingle',compact('singles'))->with('recent',$recent);
+        return view('pages.blogSingle',compact('singles','comments'))->with('recent',$recent);
     }
 
     /**

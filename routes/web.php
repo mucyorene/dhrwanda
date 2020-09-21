@@ -15,9 +15,12 @@ Route::get('/about','pageController@about');
 Route::get('/services','pageController@services');
 Route::get('/causes','pageController@causes');
 Route::get('/contact','pageController@contact');
+Route::post('/contactus','pageController@contactPost');
 Route::get('/donate','pageController@donate');
 Route::resource('/blog','blogContentsController');
 Route::get('/single.{id}','blogContentsController@show');
+Route::post('/leaveComments.{id}','blogContentsController@create');
+
 //Route::get('/appreciate','pageController@appreciate');
 //Donation save
 Route::post('/donateReq','legal@store')->name('donates');
@@ -28,7 +31,9 @@ Route::get('/dash','dashboard@index');
 Route::resource('/personal','individuals');
 Route::resource('/legal','legal');
 Route::get('/manageArticles','dashboardPages@manageArticles');
+Route::get('/pubStatus.{id}','dashboardPages@pubStatuses');
 Route::get('/show.{id}','dashboardPages@show');
+Route::get('/pr.{id}','dashboardPages@preview');
 
 Route::post('/ckEditorEdit','dashboardPages@uploading');
 Route::post('/edit.{id}','dashboardPages@edit');
@@ -36,5 +41,14 @@ Route::get('/removeArt.{id}','dashboardPages@delete');
 
 Route::resource('/addArticles','blog');
 Route::post('/ckEditors','blog@uploads')->name('ckeditor.upload');
+//login routes
+
+// Route::get('/loginTrue','PageController@showLogin');
+// Route::post('/checkLogin','PageController@doLogin');
+
 //save articles
 Route::post('/ars','blog@store');
+
+Auth::routes();
+
+Route::get('/dash', 'Dashboard@index');

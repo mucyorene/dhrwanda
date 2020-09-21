@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\DB;
 class legal extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('store');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -45,7 +55,7 @@ class legal extends Controller
         $donation->country = $request->input('country1');       
         $donation->message = $request->input('message1');
         $donation->save();
-        return back()->with('Thanks for donating');
+        return back()->with('success','Thanks for donating');
     }
 
     /**

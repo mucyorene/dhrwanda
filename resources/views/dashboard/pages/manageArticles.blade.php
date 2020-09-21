@@ -27,7 +27,9 @@
                                                 <div class="mb-5" style="padding-top:40%;">
                                                    <a href="/show.{!!$art->id!!}" class="text-success"><u>Edit</u></a>
                                                     &nbsp &nbsp
-                                                    <a href=""><u>Unpublish</u></a>
+                                                    <a href="/pubStatus.{{$art->id}}"><u>{{$art->postStatus}}</u></a>
+                                                    &nbsp &nbsp
+                                                    <a href="/pr.{{$art->id}}" class="text-warning"><u>Preview</u></a>
                                                     &nbsp &nbsp
                                                     <a href="#"onclick="removeArticle({{$art->id}});" class="text-danger"><u>Remove</u></a>
                                                 </div>

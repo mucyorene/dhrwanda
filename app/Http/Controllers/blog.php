@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ArticlesModels;
+use App\Posts;
 class blog extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -38,12 +48,13 @@ class blog extends Controller
         $new_name = rand().'.'.$image->getClientOriginalExtension();
         $image->move(public_path('blogImage'),$new_name);
         
-        $article = new ArticlesModels;
+        $article = new Posts;
         $article->postTitle = $request->input('postTitle');
         $article->content = $request->input('bodys');
         $article->thumb = $new_name;
+        $article->postStatus = 'publish';
         $article->save();
-        return back();
+        return back()->with('success','Post saved successfully');
     }
 
     public function uploads(Request $request){

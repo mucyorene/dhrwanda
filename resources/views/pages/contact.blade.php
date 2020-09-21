@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 @section('content')
   <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/rw4.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -58,19 +58,25 @@
   <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
     <div class="container-fluid px-0">
       <div class="row no-gutters block-9">
-        <div class="col-md-6 order-md-last d-flex">
-          <form action="#" class="bg-light p-5 contact-form">
+        <div class="col-md-6 order-md-last">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                @include('dashboard.inc.message')
+            </div>
+          </div>
+          <form method="POST" action="/contactus" class="bg-light p-5 contact-form">
+          {{ csrf_field() }}
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name">
+              <input type="text" class="form-control" name="names" placeholder="Your Name">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Email">
+              <input type="text" class="form-control" name="email" placeholder="Your Email">
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Subject">
+              <input type="text" class="form-control" name="subject" placeholder="Subject">
             </div>
             <div class="form-group">
-              <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              <textarea id="" cols="30" rows="7" class="form-control" name="message" placeholder="Message"></textarea>
             </div>
             <div class="form-group">
               <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">

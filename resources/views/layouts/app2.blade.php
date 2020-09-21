@@ -131,6 +131,7 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script src="js/script.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
   <script type="text/javascript">
     $(function(){
       $("#service1").click(function(){

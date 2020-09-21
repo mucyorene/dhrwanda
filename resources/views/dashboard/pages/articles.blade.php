@@ -16,6 +16,7 @@
                     <div class="row">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8">
+                            @include('dashboard.inc.message')
                             <form method="POST" action="/ars" class="form" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="form-group">
