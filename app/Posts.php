@@ -11,8 +11,7 @@ class Posts extends Model
     public function comments(){
         return $this->hasMany(Comments::class);
     }
-    
-    public function user(){
-        return $this->belongsTo('App\User');
+    public function posts(){
+        return $this->belongsTo(User::class);
     }
 }
