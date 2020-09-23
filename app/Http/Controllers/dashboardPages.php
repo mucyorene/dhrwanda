@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Posts;
 use App\Contact;
+use App\User;
 class dashboardPages extends Controller
 {
     /**
@@ -26,6 +27,10 @@ class dashboardPages extends Controller
         return view('dashboard.pages.manageArticles',compact('article'));
         
     }
+    public function users(){
+        $users = User::Where('id','!=',auth()->user()->id)->get();
+        return View('auth.users',compact('users'));
+    }
     public function edit(Request $request,$id){
 
         $image = $request->file('thumbnail');
@@ -41,8 +46,6 @@ class dashboardPages extends Controller
             $new_name = rand().'.'.$image->getClientOriginalExtension();
             $image->move(public_path('blogImage'),$new_name);
 
-            $edit = Posts::find($id);
-            $edit = Posts::find($id);
             $edit = Posts::find($id);
             $edit->postTitle = $request->input('postTitle');
             $edit->content = $request->input('bodys');
@@ -67,6 +70,11 @@ class dashboardPages extends Controller
         $art = Posts::find($id);
         $art->delete();
         return back();
+    }
+    public function removeUser($userId){
+        $userToRemove = User::find($userId);
+        $userToRemove->delete();
+        return back()->with('success','User removed successfully');
     }
     public function pubStatuses($id){
         $update = Posts::find($id);

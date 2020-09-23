@@ -45,9 +45,15 @@ class individuals extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'firstName' => 'required|min:2',
+            'lastName' => 'required|min:2',
+            'email' => 'required|email',
+            'country' => 'required',
+            'amount' => 'required',
+            'phoneNumber' => 'required|min:10'
+        ]);
         $personal = new IndividualDonations;
-        $personal->startAt = $request->input('start');
-        $personal->endAt = $request->input('end');
         $personal->firstName = $request->input('firstName');
         $personal->lastName = $request->input('lastName');
         $personal->email = $request->input('email');     
@@ -56,7 +62,7 @@ class individuals extends Controller
         $personal->amount = $request->input('amount');
         $personal->message = $request->input('message');    
         $personal->save();
-        return back();
+        return back()->with('success','Thanks for donating at Dh Rwanda');
     }
 
     /**

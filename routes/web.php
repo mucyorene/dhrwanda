@@ -34,10 +34,12 @@ Route::get('/manageArticles','dashboardPages@manageArticles');
 Route::get('/pubStatus.{id}','dashboardPages@pubStatuses');
 Route::get('/show.{id}','dashboardPages@show');
 Route::get('/pr.{id}','dashboardPages@preview');
+Route::get('/usersPage','dashboardPages@users')->name('user');
 
 Route::post('/ckEditorEdit','dashboardPages@uploading');
 Route::post('/edit.{id}','dashboardPages@edit');
 Route::get('/removeArt.{id}','dashboardPages@delete');
+Route::get('/removeUser.{id}','dashboardPages@removeUser');
 
 Route::resource('/addArticles','blog');
 Route::post('/ckEditors','blog@uploads')->name('ckeditor.upload');

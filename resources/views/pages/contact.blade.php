@@ -59,21 +59,28 @@
     <div class="container-fluid px-0">
       <div class="row no-gutters block-9">
         <div class="col-md-6 order-md-last">
-        <div class="row">
-            <div class="col-sm-12 col-md-12">
-                @include('dashboard.inc.message')
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              @if(session('success'))
+                <div class="alert alert-success">
+                  {{session('success')}}
+                </div>
+              @endif
             </div>
           </div>
           <form method="POST" action="/contactus" class="bg-light p-5 contact-form">
           {{ csrf_field() }}
             <div class="form-group">
               <input type="text" class="form-control" name="names" placeholder="Your Name">
+              <span class="text-danger">{{ $errors->first('names')}}</span>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="email" placeholder="Your Email">
+              <input type="email" class="form-control" name="email" placeholder="Your Email">
+              <span class="text-danger">{{ $errors->first('email')}}</span>
             </div>
             <div class="form-group">
               <input type="text" class="form-control" name="subject" placeholder="Subject">
+              <span class="text-danger">{{ $errors->first('subject')}}</span>
             </div>
             <div class="form-group">
               <textarea id="" cols="30" rows="7" class="form-control" name="message" placeholder="Message"></textarea>

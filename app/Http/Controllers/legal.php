@@ -46,16 +46,22 @@ class legal extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'institutionName' => 'required',
+            'email1' => 'required|email',
+            'amount1' => 'required',
+            'country1' => 'required',
+            'message1' => 'required',
+        ]);
+
         $donation = new LegalDonationModel;
-        $donation->startAt = $request->input('start1');
-        $donation->endAt = $request->input('end1');
         $donation->institutionName = $request->input('institutionName');
         $donation->email = $request->input('email1');
         $donation->amount = $request->input('amount1');
         $donation->country = $request->input('country1');       
         $donation->message = $request->input('message1');
         $donation->save();
-        return back()->with('success','Thanks for donating');
+        return back()->with('success','Thanks for donating at Dh Rwanda');
     }
 
     /**

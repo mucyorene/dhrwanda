@@ -1,4 +1,4 @@
-@extends('dashboard/layout.layouts');
+@extends('dashboard/layout.layouts')
 @section('title','Dashboard | Individuals Donations')
 @section('content')
 @extends('dashboard.inc.nav')
@@ -16,7 +16,11 @@
                     <div class="row">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8">
-                            @include('dashboard.inc.message')
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                            {{session('success')}}
+                            </div>
+                        @endif
                             <form method="POST" action="/ars" class="form" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                 <div class="form-group">
@@ -24,17 +28,20 @@
                                         POST TITLE
                                     </label>
                                     <input type="text" name="postTitle" placeholder="Post title" class="form-control">
+                                    <span class="text-danger">{{$errors->first('postTitle')}}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="Post Title" class="form-control-label">
                                         POST THUMBNAIL
                                     </label>
                                     <input type="file" name="thumbnail" class="form-control">
+                                    <span class="text-danger">{{$errors->first('thumbnail')}}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="Post Title" class="form-control-label">
                                         CONTENT
-                                    </label>
+                                    </label><br>
+                                    <span class="text-danger">{{$errors->first('bodys')}}</span>
                                     <textarea name="bodys" id="textArea" cols="30" rows="10" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">

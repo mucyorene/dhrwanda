@@ -243,6 +243,7 @@
                     <div class="input-group custom-search-form">
                         <input type="text" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
+                        
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-search"></i>
                         </button>
@@ -278,7 +279,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="{{ route('register') }}"><i class="fa fa-user fa-fw"></i> New User</a>
+                    <a href="/usersPage"><i class="fa fa-user fa-fw"></i> Users</a>
                 </li>
                 <!-- <li>
                     <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>

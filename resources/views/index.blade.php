@@ -417,7 +417,6 @@
       </div>
     </div>
   </section> -->
-    
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen">
     <svg class="circular" width="48px" height="48px">

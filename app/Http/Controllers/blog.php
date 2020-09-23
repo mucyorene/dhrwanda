@@ -44,6 +44,11 @@ class blog extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'thumbnail' => 'required|max:2048',
+            'postTitle' => 'required',
+            'bodys' => 'required'
+        ]);
         $image = $request->file('thumbnail');
         $new_name = rand().'.'.$image->getClientOriginalExtension();
         $image->move(public_path('blogImage'),$new_name);
@@ -53,6 +58,7 @@ class blog extends Controller
         $article->content = $request->input('bodys');
         $article->thumb = $new_name;
         $article->postStatus = 'publish';
+        $article->user_id = auth()->user()->id;
         $article->save();
         return back()->with('success','Post saved successfully');
     }

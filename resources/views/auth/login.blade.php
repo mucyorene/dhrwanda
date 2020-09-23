@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +53,6 @@
                         <br>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -84,7 +82,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
+
+                            </div>
+                                <div class="col-md-8 offset-md-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -96,6 +97,9 @@
                             </div>
 
                             <div class="form-group row mb-0">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+
+                                </div>
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}

@@ -1,4 +1,4 @@
-@extends('dashboard/layout.layouts');
+@extends('dashboard/layout.layouts')
 @section('title','Dashboard | Individuals Donations')
 @section('content')
 @extends('dashboard.inc.nav')

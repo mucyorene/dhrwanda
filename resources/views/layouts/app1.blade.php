@@ -173,7 +173,6 @@ Custom fonts for this template
 Custom styles for this template
 <link href="css/sb-admin.css" rel="stylesheet"> -->
 
- type="text/css">
 <link rel="stylesheet" href="public/css/style.css" type="text/css">
-Custom styles for this template
-<link href="css/sb-admin.css" rel="stylesheet"> -->
+<!-- Custom styles for this template -->
+<link href="css/sb-admin.css" rel="stylesheet">

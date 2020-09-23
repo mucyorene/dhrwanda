@@ -17,8 +17,11 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->String('postTitle');
             $table->String('thumb');
-            $table->String('content');  
+            $table->longText('content');
+            $table->unsignedBigInteger('user_id');
+            $table->String('publish');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

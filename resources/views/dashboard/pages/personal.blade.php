@@ -1,4 +1,4 @@
-@extends('dashboard/layout.layouts');
+@extends('dashboard/layout.layouts')
 @section('title','Dashboard | Individuals Donations')
 @section('content')
 @extends('dashboard.inc.nav')
@@ -12,7 +12,7 @@
                 <!-- /.col-lg-12 -->
                 <!-- Col-lg-12 -->
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             List of donators
                         </div>

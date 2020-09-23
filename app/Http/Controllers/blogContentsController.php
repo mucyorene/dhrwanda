@@ -26,6 +26,11 @@ class blogContentsController extends Controller
      */
     public function create(Request $request,$id)
     {
+        request()->validate([
+            'cNames' => 'required|min:2',
+            'cEmail' =>'required|email',
+            'cMessage' => 'required'
+        ]);
         $saveComment = new Comments;
         $saveComment->name = $request->input('cNames');
         $saveComment->email = $request->input('cEmail');
@@ -55,7 +60,7 @@ class blogContentsController extends Controller
     public function show($id)
     {
         $singles = Posts::find($id);
-        $recent = Posts::latest()->paginate(3);
+        $recent=Posts::latest()->Where('postStatus','=','unpublish')->limit(3)->get();
         $comments = Posts::find($id)->comments()->latest()->get();
         // foreach ($comments as $value) {
         //    echo $value->email."<br>";

@@ -6,22 +6,29 @@
           <div class="col-md-6 col-lg-6 col-sm-6 order-md-last">
             <fieldset>
                 <legend class="legend text-primary px-5">Personal donating Part</legend>
+                <!-- <div class="row">
+                    <div class="col-sm-13 col-md-12 col-lg-12">
+                        <div class="container">
+                            Rwanda
+                        </div>
+                    </div>
+                </div> -->
                 <form method="POST" onclick="return validatePersonal();" action="/per" name="formLegal" class="bg-light p-5 contact-form">
                 {{ csrf_field() }}
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="text" class="form-control" name="firstName" placeholder="First Name">
-                            <small class="text-danger" id="perFname"></small>
+                            <small class="text-danger" id="perFname">{{$errors->first('firstName')}}</small>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="text" class="form-control" name="lastName" placeholder="Last Name">
-                            <small class="text-danger" id="perLname"></small>
+                            <small class="text-danger" id="perLname">{{$errors->first('lastName')}}</small>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="email" name="email" class="form-control" placeholder="Email">
-                            <small class="text-danger" id="email"></small>
+                            <small class="text-danger" id="email">{{$errors->first('email')}}</small>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <select name="country" id="" required class="form-control">
@@ -33,11 +40,11 @@
                     <div class="form-group row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="text" name="phoneNumber" class="form-control" placeholder="Phone Number">
-                            <small class="text-danger" id="phoneNumber"></small>
+                            <small class="text-danger" id="phoneNumber">{{$errors->first('phoneNumber')}}</small>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <input type="number" class="form-control" placeholder="Amount" name="amount">
-                            <small class="text-danger" id="amount"></small>
+                            <small class="text-danger" id="amount">{{$errors->first('amount')}}</small>
                         </div>
                     </div>
                     <!-- <div class="form-group">
@@ -65,18 +72,18 @@
                     {{ csrf_field() }}
                         <div class="form-group">
                             <input type="text" class="form-control" name="institutionName" placeholder="Institution Name">
-                            <small class="text-danger" id="institutionName"></small>
+                            <small class="text-danger" id="institutionName">{{$errors->first('institutionName')}}</small>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
                               <input type="email" name="email1" class="form-control" placeholder="Email">
-                              <small class="text-danger" id="email1"></small>  
+                              <small class="text-danger" id="email1">{{$errors->first('email1')}}</small>  
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-5">
                                 <input type="number" name="amount1" class="form-control" placeholder="Amount">
-                                <small class="text-danger" id="amount1"></small>
+                                <small class="text-danger" id="amount1">{{$errors->first('amount1')}}</small>
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-5">
