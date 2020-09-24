@@ -59,7 +59,7 @@ class blogContentsController extends Controller
      */
     public function show($id)
     {
-        $singles = Posts::find($id)->Where('postStatus','=','unpublish')->first();
+        $singles = Posts::find($id);
         $recent=Posts::latest()->Where('postStatus','=','unpublish')->limit(3)->get();
         $comments = Posts::find($id)->comments()->latest()->get();
         // foreach ($comments as $value) {

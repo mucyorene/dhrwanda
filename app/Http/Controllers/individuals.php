@@ -62,7 +62,9 @@ class individuals extends Controller
         $personal->amount = $request->input('amount');
         $personal->message = $request->input('message');    
         $personal->save();
-        return back()->with('success','Thanks for donating at Dh Rwanda');
+        $amountStripe = $request->input('amount');
+        // return back()->with('success','Thanks for donating at Dh Rwanda');
+        return redirect('/stripe')->with('amountStripe',$amountStripe);
     }
 
     /**

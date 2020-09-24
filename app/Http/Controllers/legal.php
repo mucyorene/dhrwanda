@@ -88,7 +88,7 @@ class legal extends Controller
 
         // Session::flash('success', 'Payment successful!');
 
-        return back()->with('success','Donated successfully, go back to fill');
+        return back()->with('success','Donated successfully, We really appreciate');
     }
 
     /**

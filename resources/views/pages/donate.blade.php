@@ -4,9 +4,7 @@
       <div class="container-fluid px-0">
         <div class="row no-gutters block-9">
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="alert alert-success">
-                Rwanda
-            </div>
+            @include('dashboard.inc.message')
         </div>
           <div class="col-md-6 col-lg-6 col-sm-6 order-md-last">
             <fieldset>
