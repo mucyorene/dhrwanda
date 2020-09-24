@@ -3,6 +3,11 @@
 	<section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
       <div class="container-fluid px-0">
         <div class="row no-gutters block-9">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="alert alert-success">
+                Rwanda
+            </div>
+        </div>
           <div class="col-md-6 col-lg-6 col-sm-6 order-md-last">
             <fieldset>
                 <legend class="legend text-primary px-5">Personal donating Part</legend>
@@ -87,7 +92,7 @@
                             </div>
                             <div class="col-md-2"></div>
                             <div class="col-md-5">
-                                <select name="country1" required id="" class="form-control">
+                                <select name="country1" id="" required class="form-control">
                                     <option value="">SELECT COUNTRY</option>
                                     <option value="Rwanda">Rwanda</option>
                                 </select>

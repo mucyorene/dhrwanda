@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\LegalDonationModel;
 use Illuminate\Support\Facades\DB;
+use \Stripe\Stripe;
 class legal extends Controller
 {
     /**
@@ -50,9 +51,16 @@ class legal extends Controller
             'institutionName' => 'required',
             'email1' => 'required|email',
             'amount1' => 'required',
-            'country1' => 'required',
             'message1' => 'required',
         ]);
+
+        // Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        // Stripe\Charge::create ([
+        //         "amount" => $request->input('amount1'),
+        //         "currency" => "usd",
+        //         "source" => $request->stripeToken,
+        //         "description" => "Donations for dhrwanda organization" 
+        // ]);
 
         $donation = new LegalDonationModel;
         $donation->institutionName = $request->input('institutionName');
@@ -60,8 +68,27 @@ class legal extends Controller
         $donation->amount = $request->input('amount1');
         $donation->country = $request->input('country1');       
         $donation->message = $request->input('message1');
+        // $donation->token = $request->stripeToken;
         $donation->save();
-        return back()->with('success','Thanks for donating at Dh Rwanda');
+        $amountStripe = $request->input('amount1');
+        return redirect('/stripe')->with('amountStripe',$amountStripe);
+    }
+    public function stripe(){
+        return view('pages/stripe');
+    }
+
+    public function stripePost(Request $request){
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+        \Stripe\Charge::create ([
+                "amount" => ($request->input('amount')) * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Test Payment" 
+        ]);
+
+        // Session::flash('success', 'Payment successful!');
+
+        return back()->with('success','Donated successfully, go back to fill');
     }
 
     /**

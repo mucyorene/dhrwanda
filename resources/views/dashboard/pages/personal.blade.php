@@ -22,8 +22,6 @@
                                 <thead>
                                     <tr>
                                         <!-- <th>N<sup><u>o</u></sup></th> -->
-                                        <th>Starting date</th>
-                                        <th>Ending date</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Email</th>
@@ -38,8 +36,6 @@
                                         @foreach($individuals as $donations)
                                             <tr class="odd gradeX">
                                                 <!-- <td></td> -->
-                                                <td>{{$donations->startAt}}</td>
-                                                <td>{{$donations->endAt}}</td>
                                                 <td>{{$donations->firstName}}</td>
                                                 <td>{{$donations->lastName}}</td>
                                                 <td>{{$donations->email}}</td>

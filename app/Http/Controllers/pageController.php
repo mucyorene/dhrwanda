@@ -42,6 +42,21 @@ class pageController extends Controller
         $varContact->save();
         return back()->with('success','Thanks for contacting us');
     }
+    // public function stripeTest(){
+    //     return view('pages.stripe');
+    // }
+    // public function stripePost(){
+    //     Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    //     Stripe\Charge::create ([
+    //             "amount" => 100 * 100,
+    //             "currency" => "usd",
+    //             "source" => $request->stripeToken,
+    //             "description" => "Test payment from itsolutionstuff.com." 
+    //     ]);
+  
+    //     Session::flash('success', 'Payment successful!');
+    //     return back();
+    // }
     // public function showLogin(){
     //     return View('login');
     // }

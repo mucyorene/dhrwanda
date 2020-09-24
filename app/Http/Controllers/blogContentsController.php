@@ -48,7 +48,7 @@ class blogContentsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -59,13 +59,13 @@ class blogContentsController extends Controller
      */
     public function show($id)
     {
-        $singles = Posts::find($id);
+        $singles = Posts::find($id)->Where('postStatus','=','unpublish')->first();
         $recent=Posts::latest()->Where('postStatus','=','unpublish')->limit(3)->get();
         $comments = Posts::find($id)->comments()->latest()->get();
         // foreach ($comments as $value) {
         //    echo $value->email."<br>";
         // }
-        //var_dump($recent->postTitle);
+        // var_dump($singles);
         return view('pages.blogSingle',compact('singles','comments'))->with('recent',$recent);
     }
 

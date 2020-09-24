@@ -43,6 +43,12 @@ Route::get('/removeUser.{id}','dashboardPages@removeUser');
 
 Route::resource('/addArticles','blog');
 Route::post('/ckEditors','blog@uploads')->name('ckeditor.upload');
+
+//Stripe routes
+
+Route::get('/stripe','legal@stripe');
+Route::post('/stripePost','legal@stripePost')->name('stripe.post');
+
 //login routes
 
 // Route::get('/loginTrue','PageController@showLogin');
