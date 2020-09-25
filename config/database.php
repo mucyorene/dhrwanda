@@ -99,16 +99,16 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL["ec2-50-16-221-180.compute-1.amazonaws.com"],
-            'port' => $DATABASE_URL["5432"],
-            // 'database' => ltrim($DATABASE_URL["path"], "/"),
-            'database' => ltrim($DATABASE_URL["d9n3hgbq6ph7jf"], "/"),
-            'username' => $DATABASE_URL["rtqsspuhudtbyr"],
-            'password' => $DATABASE_URL["9027bedae5c3803beca9ab4b5d16dd6ddce8302f13529d468a5c98f7b23981ad"],
+            'host' => env('DB_HOST', 'ec2-50-16-221-180.compute-1.amazonaws.com'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'd9n3hgbq6ph7jf'),
+            'username' => env('DB_USERNAME', 'rtqsspuhudtbyr'),
+            'password' => env('DB_PASSWORD', '9027bedae5c3803beca9ab4b5d16dd6ddce8302f13529d468a5c98f7b23981ad'),
             'charset' => 'utf8',
             'prefix' => '',
+            'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'require',
+            'sslmode' => 'prefer',
         ],
 
         // 'pgsql' => [
