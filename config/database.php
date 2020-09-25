@@ -1,5 +1,6 @@
 <?php
-//$DATABASE_URL = parse_url(getenv("postgres://gyjzggalnscvye:6ab4ea58b807ad15396e1915a3fa162b5e031af7d9e72301e1b5ab7feaba965c@ec2-3-224-97-209.compute-1.amazonaws.com:5432/df8u0u9n1bosh9"));
+$DATABASE_URL=parse_url('postgres://rtqsspuhudtbyr:9027bedae5c3803beca9ab4b5d16dd6ddce8302f13529d468a5c98f7b23981ad@ec2-50-16-221-180.compute-1.amazonaws.com:5432/d9n3hgbq6ph7jf');
+//$DATABASE_URL = parse_url(getenv("postgres://rtqsspuhudtbyr:9027bedae5c3803beca9ab4b5d16dd6ddce8302f13529d468a5c98f7b23981ad@ec2-50-16-221-180.compute-1.amazonaws.com:5432/d9n3hgbq6ph7jf"));
 return [
 
     /*
@@ -13,8 +14,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
-    // 'default' => env('DB_CONNECTION', 'pgsql'),
+    // 'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -79,36 +80,36 @@ return [
         // ],
 
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-        ],
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'host' => env('DB_HOST', '127.0.0.1'),
+        //     'port' => env('DB_PORT', '5432'),
+        //     'database' => env('DB_DATABASE', 'forge'),
+        //     'username' => env('DB_USERNAME', 'forge'),
+        //     'password' => env('DB_PASSWORD', ''),
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
             
 
         //Modified
 
-        // 'pgsql' => [
-        //     'driver' => 'pgsql',
-        //     'host' => $DATABASE_URL["ec2-3-224-97-209.compute-1.amazonaws.com"],
-        //     'port' => $DATABASE_URL["5432"],
-        //     // 'database' => ltrim($DATABASE_URL["path"], "/"),
-        //     'database' => ltrim($DATABASE_URL["df8u0u9n1bosh9"], "/"),
-        //     'username' => $DATABASE_URL["gyjzggalnscvye"],
-        //     'password' => $DATABASE_URL["6ab4ea58b807ad15396e1915a3fa162b5e031af7d9e72301e1b5ab7feaba965c"],
-        //     'charset' => 'utf8',
-        //     'prefix' => '',
-        //     'schema' => 'public',
-        //     'sslmode' => 'require',
-        // ],
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'host' => $DATABASE_URL["ec2-50-16-221-180.compute-1.amazonaws.com"],
+            'port' => $DATABASE_URL["5432"],
+            // 'database' => ltrim($DATABASE_URL["path"], "/"),
+            'database' => ltrim($DATABASE_URL["d9n3hgbq6ph7jf"], "/"),
+            'username' => $DATABASE_URL["rtqsspuhudtbyr"],
+            'password' => $DATABASE_URL["9027bedae5c3803beca9ab4b5d16dd6ddce8302f13529d468a5c98f7b23981ad"],
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'require',
+        ],
 
         // 'pgsql' => [
         //     'driver' => 'pgsql',
