@@ -1,5 +1,5 @@
 <?php
-
+$DATABASE_URL = parse_url(getenv("postgres://gyjzggalnscvye:6ab4ea58b807ad15396e1915a3fa162b5e031af7d9e72301e1b5ab7feaba965c@ec2-3-224-97-209.compute-1.amazonaws.com:5432/df8u0u9n1bosh9"));
 return [
 
     /*
@@ -13,8 +13,8 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => env('DB_CONNECTION', 'pgsql'),
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -92,14 +92,31 @@ return [
         //     'schema' => 'public',
         //     'sslmode' => 'prefer',
         // ],
+            
+
+        //Modified
+
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'host' => $DATABASE_URL["ec2-3-224-97-209.compute-1.amazonaws.com"],
+        //     'port' => $DATABASE_URL["5432"],
+        //     // 'database' => ltrim($DATABASE_URL["path"], "/"),
+        //     'database' => ltrim($DATABASE_URL["df8u0u9n1bosh9"], "/"),
+        //     'username' => $DATABASE_URL["gyjzggalnscvye"],
+        //     'password' => $DATABASE_URL["6ab4ea58b807ad15396e1915a3fa162b5e031af7d9e72301e1b5ab7feaba965c"],
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'schema' => 'public',
+        //     'sslmode' => 'require',
+        // ],
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL["host"],
-            'port' => $DATABASE_URL["port"],
-            'database' => ltrim($DATABASE_URL["path"], "/"),
-            'username' => $DATABASE_URL["user"],
-            'password' => $DATABASE_URL["pass"],
+            'host' => $DATABASE_URL["ec2-3-224-97-209.compute-1.amazonaws.com"],
+            'port' => $DATABASE_URL["5432"],
+            'database' => ltrim($DATABASE_URL["path"], "/df8u0u9n1bosh9"),
+            'username' => $DATABASE_URL["gyjzggalnscvye"],
+            'password' => $DATABASE_URL["6ab4ea58b807ad15396e1915a3fa162b5e031af7d9e72301e1b5ab7feaba965c"],
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
