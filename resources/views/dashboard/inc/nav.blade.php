@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="divider"></li>
-                <li>
+                <!-- <li>
                     <a href="#">
                         <div>
                             <strong>John Smith</strong>
@@ -58,7 +58,7 @@
                         <strong>Read All Messages</strong>
                         <i class="fa fa-angle-right"></i>
                     </a>
-                </li>
+                </li> -->
             </ul>
             <!-- /.dropdown-messages -->
         </li>

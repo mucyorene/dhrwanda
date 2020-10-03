@@ -23,6 +23,7 @@ class individuals extends Controller
      */
     public function index()
     {
+        
         $individualDonation = IndividualDonations::all();
         return view('dashboard.pages.personal')->with('individuals',$individualDonation);
     }
